@@ -136,7 +136,7 @@
         
         /* Hero Section */
         .hero {
-            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://via.placeholder.com/1920x1080');
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80');
             background-size: cover;
             background-position: center;
             height: 80vh;
@@ -251,8 +251,9 @@
         }
         
         .brand-card img {
-            max-width: 150px;
-            height: auto;
+            max-width: 100%;
+            height: 150px;
+            object-fit: contain;
             margin-bottom: 1rem;
         }
         
@@ -469,7 +470,7 @@
         <div class="container">
             <div class="header-content">
                 <div class="logo-container">
-                    <img src="biontech.jpg" alt="EliteBasket Logo" class="logo-img">
+                    <img src="https://via.placeholder.com/150x50?text=EliteBasket+Logo" alt="EliteBasket Logo" class="logo-img">
                     <a href="#" class="logo">Elite<span>Basket</span></a>
                 </div>
                 <nav>
@@ -524,7 +525,7 @@
                     <a href="#brands" class="btn">Discover Our Brands</a>
                 </div>
                 <div class="about-image">
-                    <img src="https://via.placeholder.com/600x400" alt="EliteBasket Corporate Office">
+                    <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="EliteBasket Corporate Office">
                 </div>
             </div>
         </div>
@@ -538,38 +539,38 @@
             </div>
             <div class="brand-grid">
                 <div class="brand-card">
-                    <i class="fas fa-home fa-3x" style="color: var(--primary-color); margin-bottom: 1rem;"></i>
+                    <img src="https://images.unsplash.com/photo-1556909212-d5b604d0c90d?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80" alt="UrbanNest">
                     <h3>UrbanNest</h3>
                     <p>Modern furniture and home designs</p>
                 </div>
                 
                 <div class="brand-card pawport-brand">
-                    <i class="fas fa-paw fa-3x" style="color: #f1c40f; margin-bottom: 1rem;"></i>
+                    <img src="https://images.unsplash.com/photo-1586671267731-da2cf3ceeb80?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80" alt="Pawport">
                     <h3 class="pawport-logo">Pawport</h3>
                     <p>Pet travel essentials store</p>
                     <p>Everything you need for traveling with your pets</p>
                 </div>
                 
                 <div class="brand-card">
-                    <i class="fas fa-leaf fa-3x" style="color: var(--primary-color); margin-bottom: 1rem;"></i>
+                    <img src="https://images.unsplash.com/photo-1542838132-92c53300491e?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80" alt="TerraFresh">
                     <h3>TerraFresh</h3>
                     <p>Fresh organic products from farm to table</p>
                 </div>
                 
                 <div class="brand-card">
-                    <i class="fas fa-tshirt fa-3x" style="color: var(--primary-color); margin-bottom: 1rem;"></i>
+                    <img src="https://images.unsplash.com/photo-1489987707025-afc232f7ea0f?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80" alt="StyleHaven">
                     <h3>StyleHaven</h3>
                     <p>Affordable contemporary fashion</p>
                 </div>
                 
                 <div class="brand-card">
-                    <i class="fas fa-laptop fa-3x" style="color: var(--primary-color); margin-bottom: 1rem;"></i>
+                    <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80" alt="TechVault">
                     <h3>TechVault</h3>
                     <p>Latest electronics and smart home solutions</p>
                 </div>
                 
                 <div class="brand-card">
-                    <i class="fas fa-hiking fa-3x" style="color: var(--primary-color); margin-bottom: 1rem;"></i>
+                    <img src="https://images.unsplash.com/photo-1522163182402-834f871fd851?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80" alt="OutfitterPro">
                     <h3>OutfitterPro</h3>
                     <p>Outdoor adventure gear and equipment</p>
                 </div>
@@ -710,8 +711,6 @@
         
         // Language switching functionality
         function changeLanguage(lang) {
-            // In a real implementation, this would load translations from JSON files
-            // or redirect to language-specific URLs
             alert('Language switched to: ' + lang.toUpperCase() + 
                  '\n\nIn a full implementation, this would load the appropriate translations or redirect to a language-specific version of the site.');
             
@@ -726,10 +725,10 @@
             document.querySelector('.language-btn').innerHTML = 
                 `<i class="fas fa-globe"></i> ${langNames[lang]}`;
             
-            return false; // Prevent default link behavior
+            return false;
         }
         
-        // For demo purposes - in production you would implement full translation
+        // For demo purposes
         document.querySelectorAll('[onclick^="changeLanguage"]').forEach(link => {
             link.addEventListener('click', function(e) {
                 e.preventDefault();
