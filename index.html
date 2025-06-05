@@ -3,11 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EliteBasket - Premium Retail Group</title>
+    <title>EliteBasket - Premier E-commerce Group</title>
     <style>
         :root {
             --primary-color: #2c3e50;
             --secondary-color: #e74c3c;
+            --pawport-color: #8e44ad;
             --accent-color: #f39c12;
             --light-color: #ecf0f1;
             --dark-color: #2c3e50;
@@ -26,6 +27,13 @@
             line-height: 1.6;
         }
         
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        /* Header Styles */
         header {
             background-color: var(--primary-color);
             color: white;
@@ -36,16 +44,20 @@
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
         }
         
-        .container {
-            width: 90%;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-        
         .header-content {
             display: flex;
             justify-content: space-between;
             align-items: center;
+        }
+        
+        .logo-container {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo-img {
+            height: 50px;
+            margin-right: 15px;
         }
         
         .logo {
@@ -62,6 +74,7 @@
         nav ul {
             display: flex;
             list-style: none;
+            align-items: center;
         }
         
         nav ul li {
@@ -79,6 +92,49 @@
             color: var(--accent-color);
         }
         
+        /* Language Selector */
+        .language-selector {
+            position: relative;
+            display: inline-block;
+        }
+        
+        .language-btn {
+            background: transparent;
+            color: white;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            font-size: 1rem;
+        }
+        
+        .language-dropdown {
+            display: none;
+            position: absolute;
+            right: 0;
+            background-color: white;
+            min-width: 120px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+            z-index: 1;
+            border-radius: 5px;
+        }
+        
+        .language-dropdown a {
+            color: var(--primary-color);
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+        
+        .language-dropdown a:hover {
+            background-color: var(--light-color);
+        }
+        
+        .language-selector:hover .language-dropdown {
+            display: block;
+        }
+        
+        /* Hero Section */
         .hero {
             background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://via.placeholder.com/1920x1080');
             background-size: cover;
@@ -93,6 +149,12 @@
         .hero-content h1 {
             font-size: 3.5rem;
             margin-bottom: 1rem;
+        }
+        
+        .hero-content h2 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            color: var(--accent-color);
         }
         
         .hero-content p {
@@ -118,6 +180,7 @@
             background-color: #d35400;
         }
         
+        /* Sections */
         .section {
             padding: 5rem 0;
         }
@@ -139,6 +202,7 @@
             margin: 0 auto;
         }
         
+        /* About Section */
         .about-content {
             display: flex;
             align-items: center;
@@ -162,13 +226,14 @@
             display: block;
         }
         
+        /* Brands Section */
         .brands {
             background-color: var(--light-color);
         }
         
         .brand-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 2rem;
         }
         
@@ -196,6 +261,20 @@
             color: var(--primary-color);
         }
         
+        /* Pawport Brand Special */
+        .pawport-brand {
+            background-color: var(--pawport-color);
+            border-left: 5px solid #f1c40f;
+            color: white;
+        }
+        
+        .pawport-logo {
+            color: #f1c40f;
+            font-weight: bold;
+            font-size: 1.5rem;
+        }
+        
+        /* Stats Section */
         .stats {
             background-color: var(--primary-color);
             color: white;
@@ -218,6 +297,7 @@
             font-size: 1.2rem;
         }
         
+        /* Contact Section */
         .contact {
             background-color: white;
         }
@@ -267,6 +347,7 @@
             height: 150px;
         }
         
+        /* Footer */
         footer {
             background-color: var(--dark-color);
             color: white;
@@ -339,6 +420,7 @@
             color: #bbb;
         }
         
+        /* Responsive Design */
         @media (max-width: 768px) {
             .header-content {
                 flex-direction: column;
@@ -347,10 +429,15 @@
             
             nav ul {
                 margin-top: 1rem;
+                justify-content: center;
             }
             
             .hero-content h1 {
                 font-size: 2.5rem;
+            }
+            
+            .hero-content h2 {
+                font-size: 1.5rem;
             }
             
             .about-content, .contact-content {
@@ -360,21 +447,52 @@
             .section {
                 padding: 3rem 0;
             }
+            
+            .footer-column {
+                text-align: center;
+            }
+            
+            .social-links {
+                justify-content: center;
+            }
+            
+            .language-selector {
+                margin-top: 1rem;
+            }
         }
     </style>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
     <header>
         <div class="container">
             <div class="header-content">
-                <a href="#" class="logo">Elite<span>Basket</span></a>
+                <div class="logo-container">
+                    <img src="biontech.jpg" alt="EliteBasket Logo" class="logo-img">
+                    <a href="#" class="logo">Elite<span>Basket</span></a>
+                </div>
                 <nav>
                     <ul>
                         <li><a href="#home">Home</a></li>
                         <li><a href="#about">About</a></li>
                         <li><a href="#brands">Our Brands</a></li>
-                        <li><a href="#stats">Impact</a></li>
+                        <li><a href="#stats">Stats</a></li>
                         <li><a href="#contact">Contact</a></li>
+                        <li>
+                            <div class="language-selector">
+                                <button class="language-btn">
+                                    <i class="fas fa-globe"></i> EN
+                                </button>
+                                <div class="language-dropdown">
+                                    <a href="#" onclick="changeLanguage('en')">English</a>
+                                    <a href="#" onclick="changeLanguage('ar')">العربية</a>
+                                    <a href="#" onclick="changeLanguage('fr')">Français</a>
+                                    <a href="#" onclick="changeLanguage('de')">Deutsch</a>
+                                    <a href="#" onclick="changeLanguage('es')">Español</a>
+                                </div>
+                            </div>
+                        </li>
                     </ul>
                 </nav>
             </div>
@@ -384,9 +502,10 @@
     <section class="hero" id="home">
         <div class="container">
             <div class="hero-content">
-                <h1>Redefining Retail Excellence</h1>
-                <p>EliteBasket is the premier holding company for America's most innovative retail brands, delivering exceptional value and shopping experiences to consumers nationwide.</p>
-                <a href="#about" class="btn">Discover More</a>
+                <h1>EliteBasket LLC</h1>
+                <h2>ONLINE MARKETPLACE</h2>
+                <p>Delivering comprehensive e-commerce solutions through a diverse portfolio of specialized brands</p>
+                <a href="#brands" class="btn">Explore Our Brands</a>
             </div>
         </div>
     </section>
@@ -395,14 +514,14 @@
         <div class="container">
             <div class="section-title">
                 <h2>About EliteBasket</h2>
-                <p>As a leading retail holding company, we empower brands to thrive in today's competitive marketplace through strategic leadership and operational excellence.</p>
+                <p>A premier e-commerce group offering exceptional shopping experiences through specialized brands</p>
             </div>
             <div class="about-content">
                 <div class="about-text">
                     <h3>Our Vision</h3>
-                    <p>Founded in 2010, EliteBasket has grown from a single retail operation to a diversified portfolio of 12 successful brands across multiple consumer sectors. Our mission is to cultivate retail concepts that resonate with modern consumers while maintaining strong profitability and sustainable growth.</p>
-                    <p>We specialize in identifying emerging retail trends and providing our subsidiary companies with the capital, expertise, and infrastructure they need to scale effectively in the U.S. market.</p>
-                    <a href="#brands" class="btn">Explore Our Brands</a>
+                    <p>Founded in 2010, EliteBasket has grown into a comprehensive e-commerce platform managing diverse specialized brands. We aim to deliver high-quality products through targeted stores that meet all customer needs.</p>
+                    <p>We focus on developing unique shopping experiences by combining technical innovation with marketing expertise to build successful, strong brands.</p>
+                    <a href="#brands" class="btn">Discover Our Brands</a>
                 </div>
                 <div class="about-image">
                     <img src="https://via.placeholder.com/600x400" alt="EliteBasket Corporate Office">
@@ -414,39 +533,45 @@
     <section class="section brands" id="brands">
         <div class="container">
             <div class="section-title">
-                <h2>Our Retail Portfolio</h2>
-                <p>Each EliteBasket brand maintains its unique identity while benefiting from our corporate resources and industry expertise.</p>
+                <h2>Our Brands</h2>
+                <p>A comprehensive portfolio of specialized stores catering to diverse customer needs</p>
             </div>
             <div class="brand-grid">
                 <div class="brand-card">
-                    <img src="https://via.placeholder.com/150x80" alt="UrbanNest Logo">
+                    <i class="fas fa-home fa-3x" style="color: var(--primary-color); margin-bottom: 1rem;"></i>
                     <h3>UrbanNest</h3>
-                    <p>Modern home furnishings for urban living spaces</p>
+                    <p>Modern furniture and home designs</p>
                 </div>
+                
+                <div class="brand-card pawport-brand">
+                    <i class="fas fa-paw fa-3x" style="color: #f1c40f; margin-bottom: 1rem;"></i>
+                    <h3 class="pawport-logo">Pawport</h3>
+                    <p>Pet travel essentials store</p>
+                    <p>Everything you need for traveling with your pets</p>
+                </div>
+                
                 <div class="brand-card">
-                    <img src="https://via.placeholder.com/150x80" alt="TerraFresh Logo">
+                    <i class="fas fa-leaf fa-3x" style="color: var(--primary-color); margin-bottom: 1rem;"></i>
                     <h3>TerraFresh</h3>
-                    <p>Organic grocery chain with farm-to-table focus</p>
+                    <p>Fresh organic products from farm to table</p>
                 </div>
+                
                 <div class="brand-card">
-                    <img src="https://via.placeholder.com/150x80" alt="StyleHaven Logo">
+                    <i class="fas fa-tshirt fa-3x" style="color: var(--primary-color); margin-bottom: 1rem;"></i>
                     <h3>StyleHaven</h3>
-                    <p>Affordable fashion for the contemporary woman</p>
+                    <p>Affordable contemporary fashion</p>
                 </div>
+                
                 <div class="brand-card">
-                    <img src="https://via.placeholder.com/150x80" alt="TechVault Logo">
+                    <i class="fas fa-laptop fa-3x" style="color: var(--primary-color); margin-bottom: 1rem;"></i>
                     <h3>TechVault</h3>
-                    <p>Cutting-edge electronics and smart home solutions</p>
+                    <p>Latest electronics and smart home solutions</p>
                 </div>
+                
                 <div class="brand-card">
-                    <img src="https://via.placeholder.com/150x80" alt="PetPrestige Logo">
-                    <h3>PetPrestige</h3>
-                    <p>Premium pet supplies and grooming services</p>
-                </div>
-                <div class="brand-card">
-                    <img src="https://via.placeholder.com/150x80" alt="OutfitterPro Logo">
+                    <i class="fas fa-hiking fa-3x" style="color: var(--primary-color); margin-bottom: 1rem;"></i>
                     <h3>OutfitterPro</h3>
-                    <p>Performance outdoor gear for adventure enthusiasts</p>
+                    <p>Outdoor adventure gear and equipment</p>
                 </div>
             </div>
         </div>
@@ -456,24 +581,24 @@
         <div class="container">
             <div class="section-title">
                 <h2>By The Numbers</h2>
-                <p>Our measurable impact on the U.S. retail landscape</p>
+                <p>Metrics that reflect our success and continuous growth</p>
             </div>
             <div class="stats-grid">
                 <div class="stat-item">
                     <h3>12</h3>
-                    <p>Successful Retail Brands</p>
+                    <p>Successful Brands</p>
                 </div>
                 <div class="stat-item">
                     <h3>850+</h3>
-                    <p>Store Locations Nationwide</p>
+                    <p>Online Stores</p>
                 </div>
                 <div class="stat-item">
                     <h3>15,000+</h3>
-                    <p>Employees Across Our Network</p>
+                    <p>Team Members</p>
                 </div>
                 <div class="stat-item">
-                    <h3>$3.2B</h3>
-                    <p>Annual Combined Revenue</p>
+                    <h3>3.2B</h3>
+                    <p>Annual Sales Volume</p>
                 </div>
             </div>
         </div>
@@ -482,30 +607,38 @@
     <section class="section contact" id="contact">
         <div class="container">
             <div class="section-title">
-                <h2>Get In Touch</h2>
-                <p>Connect with our corporate team to explore partnership opportunities</p>
+                <h2>Contact Us</h2>
+                <p>We're here to answer all your inquiries</p>
             </div>
             <div class="contact-content">
                 <div class="contact-info">
-                    <h3>Corporate Headquarters</h3>
-                    <p>123 Retail Plaza, Suite 500<br>
-                    New York, NY 10001<br>
-                    United States</p>
+                    <h3>Headquarters</h3>
+                    <p>123 Business Street, Commerce Tower<br>
+                    Riyadh, Saudi Arabia<br>
+                    Postal Code: 11564</p>
                     
-                    <p><strong>Phone:</strong> (212) 555-1000<br>
+                    <p><strong>Phone:</strong> +966 12 345 6789<br>
                     <strong>Email:</strong> info@elitebasket.com</p>
                     
-                    <h3>Investor Relations</h3>
-                    <p>For investment inquiries and financial information, please contact our IR team at investors@elitebasket.com</p>
+                    <h3>Working Hours</h3>
+                    <p>Sunday - Thursday: 8 AM - 5 PM<br>
+                    Friday & Saturday: Closed</p>
+                    
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
                 </div>
                 <div class="contact-form">
                     <form>
                         <div class="form-group">
-                            <label for="name">Name</label>
+                            <label for="name">Full Name</label>
                             <input type="text" id="name" required>
                         </div>
                         <div class="form-group">
-                            <label for="email">Email</label>
+                            <label for="email">Email Address</label>
                             <input type="email" id="email" required>
                         </div>
                         <div class="form-group">
@@ -528,7 +661,7 @@
             <div class="footer-content">
                 <div class="footer-column">
                     <h3>EliteBasket</h3>
-                    <p>Leading innovation in retail through strategic brand development and operational excellence.</p>
+                    <p>Delivering comprehensive e-commerce solutions through a portfolio of specialized brands that cater to diverse customer needs.</p>
                     <div class="social-links">
                         <a href="#"><i class="fab fa-facebook-f"></i></a>
                         <a href="#"><i class="fab fa-twitter"></i></a>
@@ -540,38 +673,69 @@
                     <h3>Quick Links</h3>
                     <ul>
                         <li><a href="#home">Home</a></li>
-                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#about">About</a></li>
                         <li><a href="#brands">Our Brands</a></li>
-                        <li><a href="#stats">Company Impact</a></li>
                         <li><a href="#contact">Contact</a></li>
                     </ul>
                 </div>
                 <div class="footer-column">
-                    <h3>Careers</h3>
+                    <h3>Our Brands</h3>
                     <ul>
-                        <li><a href="#">Corporate Opportunities</a></li>
-                        <li><a href="#">Brand Careers</a></li>
-                        <li><a href="#">Internship Programs</a></li>
-                        <li><a href="#">Diversity & Inclusion</a></li>
+                        <li><a href="#">UrbanNest</a></li>
+                        <li><a href="#">Pawport</a></li>
+                        <li><a href="#">TerraFresh</a></li>
+                        <li><a href="#">StyleHaven</a></li>
+                        <li><a href="#">TechVault</a></li>
+                        <li><a href="#">OutfitterPro</a></li>
                     </ul>
                 </div>
                 <div class="footer-column">
-                    <h3>Legal</h3>
+                    <h3>Contact Us</h3>
                     <ul>
-                        <li><a href="#">Privacy Policy</a></li>
-                        <li><a href="#">Terms of Service</a></li>
-                        <li><a href="#">Investor Relations</a></li>
-                        <li><a href="#">Corporate Governance</a></li>
+                        <li><i class="fas fa-phone"></i> +966 12 345 6789</li>
+                        <li><i class="fas fa-envelope"></i> info@elitebasket.com</li>
+                        <li><i class="fas fa-map-marker-alt"></i> Riyadh, Saudi Arabia</li>
                     </ul>
                 </div>
             </div>
             <div class="copyright">
-                <p>&copy; 2023 EliteBasket Holdings. All Rights Reserved.</p>
+                <p>&copy; <span id="year"></span> EliteBasket LLC. All Rights Reserved.</p>
             </div>
         </div>
     </footer>
 
-    <!-- Font Awesome for icons -->
-    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <script>
+        // Update copyright year automatically
+        document.getElementById('year').textContent = new Date().getFullYear();
+        
+        // Language switching functionality
+        function changeLanguage(lang) {
+            // In a real implementation, this would load translations from JSON files
+            // or redirect to language-specific URLs
+            alert('Language switched to: ' + lang.toUpperCase() + 
+                 '\n\nIn a full implementation, this would load the appropriate translations or redirect to a language-specific version of the site.');
+            
+            // Update the language selector button
+            const langNames = {
+                'en': 'EN',
+                'ar': 'العربية',
+                'fr': 'FR',
+                'de': 'DE',
+                'es': 'ES'
+            };
+            document.querySelector('.language-btn').innerHTML = 
+                `<i class="fas fa-globe"></i> ${langNames[lang]}`;
+            
+            return false; // Prevent default link behavior
+        }
+        
+        // For demo purposes - in production you would implement full translation
+        document.querySelectorAll('[onclick^="changeLanguage"]').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                changeLanguage(this.getAttribute('onclick').match(/'([^']+)'/)[1]);
+            });
+        });
+    </script>
 </body>
 </html>
